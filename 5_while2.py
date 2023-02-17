@@ -17,11 +17,19 @@
 
 questions_and_answers = {}
 
-def ask_user(answers_dict):
+def ask_user(answers_dict):  #answers_dict
     """
     Замените pass на ваш код
     """
-    pass
-    
+    word = input('Введи вопрос: ')
+    while word != 'выход':
+      if word in answers_dict:
+        print(questions_and_answers[word]) #questions_and_answers[word]
+      else:
+        answer = input('Научи меня отвечать на этот вопрос: ')
+        answers_dict[word] = answer
+
+      word = input('Введи вопрос: ')  
+      
 if __name__ == "__main__":
-    ask_user(questions_and_answers)
+    ask_user(questions_and_answers)  #questions_and_answers
