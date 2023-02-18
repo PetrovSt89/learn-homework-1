@@ -32,9 +32,9 @@ def talk_to_me(update, context):
     update.message.reply_text(user_text)
 
 def planets(update, context):
-    textT = update.message.text
-    textT = textT.split()
-    planet_name =textT[1]
+    enter_text = update.message.text
+    enter_text = enter_text.split()
+    planet_name =enter_text[1]
     if planet_name == 'Mars':
         planet = ephem.Mars('2023/02/16')
     elif planet_name == 'Pluto':
@@ -42,9 +42,9 @@ def planets(update, context):
     else:
         update.message.reply_text('Я не знаю таких планет')
         return
-    planet = ephem.constellation(planet)
+    constel = ephem.constellation(planet)
     logger.info('Вызван /planet')
-    update.message.reply_text(planet)
+    update.message.reply_text(constel)
 
 def main():
     mybot = Updater(settings.API_KEY, use_context=True)
